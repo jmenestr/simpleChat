@@ -17,5 +17,9 @@ export default class SocketService {
     this.socket.emit('message', message);
   }
 
+  registerUser(username: string) {
+    this.socket.emit('register', username);
+  }
+
 }
 

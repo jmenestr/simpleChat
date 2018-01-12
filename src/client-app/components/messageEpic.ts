@@ -10,6 +10,6 @@ export const messageEpic$: Epic<any, State, EpicDependicies> = (action$, state, 
   action$.ofType(sendMessage)
   .mergeMap(({ payload }: { payload: { message: string } }) => {
     const name = state.getState().username;
-    socket.sendMessage({ name, body: payload.message });
+    socket.sendMessage({ name, body: payload.message, toUser: state.getState().toUsername });
     return Observable.empty();
   })
